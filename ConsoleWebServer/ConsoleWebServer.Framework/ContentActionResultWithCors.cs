@@ -1,9 +1,13 @@
-using System.Collections.Generic;
-
-public class ContentActionResultWithCors<TResult> : ContentActionResult
+namespace ConsoleWebServer.Framework
 {
-    public ContentActionResultWithCors(HttpRq request, object model, string corsSettings) : base(request, model)
+    using System.Collections.Generic;
+
+    public class ContentActionResultWithCors<TResult> : ContentActionResult
     {
-        this.ResponseHeaders.Add(new KeyValuePair<string, string>("Access-Control-Allow-Origin", corsSettings));
+        public ContentActionResultWithCors(HttpRq request, object model, string corsSettings)
+            : base(request, model)
+        {
+            this.ResponseHeaders.Add(new KeyValuePair<string, string>("Access-Control-Allow-Origin", corsSettings));
+        }
     }
 }

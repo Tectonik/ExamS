@@ -1,11 +1,12 @@
 ﻿// TODO: Describe patterns, SOLID, bugs and bottleneck in Documentation.txt
-
-public class EntryPoint
+namespace ConsoleWebServer.Application
 {
-    public static void Main()
+    public class EntryPoint
     {
-        var webSever = new WebServerConsole5();
-        webSever.Start();
+        public static void Main()
+        {
+            var webSever = new WebServerConsole();
+            webSever.Start();
+        }
     }
 }
-;

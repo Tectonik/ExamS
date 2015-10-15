@@ -1,9 +1,13 @@
-using System.Collections.Generic;
-
-public class ContentActionResultWithoutCaching : ContentActionResult
+namespace ConsoleWebServer.Framework
 {
-    public ContentActionResultWithoutCaching(HttpRq request, object model) : base(request, model)
+    using System.Collections.Generic;
+
+    public class ContentActionResultWithoutCaching : ContentActionResult
     {
-        this.ResponseHeaders.Add(new KeyValuePair<string, string>("Cache-Control", "private, max-age=0, no-cache"));
+        public ContentActionResultWithoutCaching(HttpRq request, object model)
+            : base(request, model)
+        {
+            this.ResponseHeaders.Add(new KeyValuePair<string, string>("Cache-Control", "private, max-age=0, no-cache"));
+        }
     }
 }

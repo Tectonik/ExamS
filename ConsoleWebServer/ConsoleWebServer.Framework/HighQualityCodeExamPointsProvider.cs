@@ -1,15 +1,18 @@
-﻿using System;
-using System.Linq;
-
-internal class HighQualityCodeExamPointsProvider
+﻿namespace ConsoleWebServer.Framework
 {
-    public static string GetContentType()
-    {
-        return "application/json";
-    }
+    using System;
+    using System.Linq;
 
-    public int GetMyPoints()
+    internal class HighQualityCodeExamPointsProvider
     {
-        return 0;
+        public static string GetContentType()
+        {
+            return "application/json";
+        }
+
+        public int GetMyPoints()
+        {
+            return 0;
+        }
     }
 }

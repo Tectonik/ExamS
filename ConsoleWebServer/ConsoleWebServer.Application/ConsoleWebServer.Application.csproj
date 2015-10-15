@@ -45,7 +45,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebServerConsole5.cs" />
+    <Compile Include="WebServerConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

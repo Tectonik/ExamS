@@ -1,8 +1,11 @@
-﻿internal class NewActionInvoker
+﻿namespace ConsoleWebServer.Framework
 {
-    public IActionResult InvokeAction(Controller controller, ActionDescriptor actionDescriptor)
+    internal class NewActionInvoker
     {
-        string className = HttpNotFound.ClassName;
-        return new ActionInvoker().InvokeAction(controller, actionDescriptor);
+        public IActionResult InvokeAction(Controller controller, ActionDescriptor actionDescriptor)
+        {
+            string className = HttpNotFound.ClassName;
+            return new ActionInvoker().InvokeAction(controller, actionDescriptor);
+        }
     }
 }

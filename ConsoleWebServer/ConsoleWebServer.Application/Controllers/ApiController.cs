@@ -1,31 +1,35 @@
-﻿using System;
-using System.Linq;
-
-public class ApiController : Controller
+﻿namespace ConsoleWebServer.Application.Controllers
 {
-    public ApiController(HttpRq request) : base(request)
-    {
-    }
+    using System;
+    using System.Linq;
 
-    public IActionResult ReturnMe(string param)
+    public class ApiController : Controller
     {
-        return this.Json(new { param });
-    }
+        public ApiController(HttpRq request)
+            : base(request)
+        {
+        }
 
-    public IActionResult GetDateWithCors(string domainName)
-    {
-        string requestReferer = string.Empty;
-        if (this.Request.Headers.ContainsKey("Referer"))
+        public IActionResult ReturnMe(string param)
         {
-            requestReferer = this.Request.Headers["Referer"].FirstOrDefault();
+            return this.Json(new { param });
         }
-        if (string.IsNullOrWhiteSpace(requestReferer) || !requestReferer.Contains(domainName))
+
+        public IActionResult GetDateWithCors(string domainName)
         {
-            throw new ArgumentException("Invalid referer!");
+            string requestReferer = string.Empty;
+            if (this.Request.Headers.ContainsKey("Referer"))
+            {
+                requestReferer = this.Request.Headers["Referer"].FirstOrDefault();
+            }
+            if (string.IsNullOrWhiteSpace(requestReferer) || !requestReferer.Contains(domainName))
+            {
+                throw new ArgumentException("Invalid referer!");
+            }
+            return new JsonActionResultWithCors(
+                this.Request,
+                new { date = DateTime.Now.ToString("yyyy-MM-dd"), moreInfo = string.Format("Data available for {0}", domainName) },
+                domainName);
         }
-        return new JsonActionResultWithCors(
-            this.Request,
-            new { date = DateTime.Now.ToString("yyyy-MM-dd"), moreInfo = string.Format("Data available for {0}", domainName) },
-            domainName);
     }
 }
