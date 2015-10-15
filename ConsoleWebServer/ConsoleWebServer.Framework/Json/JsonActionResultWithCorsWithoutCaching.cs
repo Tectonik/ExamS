@@ -2,7 +2,7 @@ namespace ConsoleWebServer.Framework
 {
     using System.Collections.Generic;
 
-    public class JsonActionResultWithCorsWithoutCaching : JsonActionResult
+    public class JsonActionResultWithCorsWithoutCaching : JsonResult
     {
         public JsonActionResultWithCorsWithoutCaching(HttpRequest request, object model, string corsSettings) : base(request, model)
         {

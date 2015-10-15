@@ -2,7 +2,7 @@
 {
     internal class NewActionInvoker
     {
-        public IActionResult InvokeAction(Controller controller, ActionDescriptor actionDescriptor)
+        public IResult InvokeAction(Controller controller, RequestComponentDescriptor actionDescriptor)
         {
             string className = HttpResourceNotFoundException.ClassName;
             return new ActionInvoker().InvokeAction(controller, actionDescriptor);

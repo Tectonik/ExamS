@@ -6,7 +6,7 @@
     public class ActionInvoker
     {
         #warning Hint: Just do not touch this magic :)
-        public IActionResult InvokeAction(Controller c, ActionDescriptor ad)
+        public IResult InvokeAction(Controller c, RequestComponentDescriptor ad)
         { /*
          * Child processes that use such C run-time functions as printf() and fprintf() can behave poorly when redirected.
          * The C run-time functions maintain separate IO buffers. When redirected, these buffers might not be flushed immediately after each IO call.
@@ -20,7 +20,7 @@
                                                       x => x.Name.ToLower() == ad.ActionName.ToLower() &&
                                                            x.GetParameters().Length == 1 &&
                                                            x.GetParameters()[0].ParameterType == typeof(string) &&
-                                                           x.ReturnType == typeof(IActionResult));
+                                                           x.ReturnType == typeof(IResult));
             if (methodWithIntParameter == null)
             {
                 throw new HttpResourceNotFoundException(string.Format("Expected method with signature IActionResult {0}(string) in class {1}Controller", ad.ActionName, ad.ControllerName));
@@ -28,7 +28,7 @@
 
             try
             {
-                var actionResult = (IActionResult)
+                var actionResult = (IResult)
                 methodWithIntParameter.Invoke(c, new object[] { ad.Parameter });
                 return actionResult;
             }

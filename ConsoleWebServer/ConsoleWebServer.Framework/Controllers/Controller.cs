@@ -9,14 +9,14 @@
 
         public HttpRequest Request { get; private set; }
 
-        protected IActionResult Content(object model)
+        protected IResult Content(object model)
         {
             return new ContentActionResult(this.Request, model);
         }
 
-        protected IActionResult Json(object model)
+        protected IResult Json(object model)
         {
-            return new JsonActionResult(this.Request, model);
+            return new JsonResult(this.Request, model);
         }
     }
 }

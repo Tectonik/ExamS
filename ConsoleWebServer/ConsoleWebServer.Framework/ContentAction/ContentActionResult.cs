@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Net;
 
-    public class ContentActionResult : IActionResult
+    public class ContentActionResult : IResult
     {
         public readonly object Model;
 

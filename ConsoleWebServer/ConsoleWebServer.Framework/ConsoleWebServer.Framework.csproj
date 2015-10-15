@@ -73,8 +73,11 @@
     <Compile Include="ContentAction\ContentActionResultWithCors.cs" />
     <Compile Include="ContentAction\ContentActionResultWithCorsWithoutCaching.cs" />
     <Compile Include="ContentAction\ContentActionResultWithoutCaching.cs" />
+    <Compile Include="Decorator\Class1.cs" />
     <Compile Include="Exceptions\ParserException.cs" />
-    <Compile Include="Json\HighQualityCodeExamPointsProvider.cs" />
+    <Compile Include="HomeController.cs" />
+    <Compile Include="HighQualityCodeExamPointsProvider.cs" />
+    <Compile Include="Interfaces\IJsonActionResult.cs" />
     <Compile Include="Json\JsonActionResult.cs" />
     <Compile Include="ContentAction\ContentActionResult.cs" />
     <Compile Include="Json\JsonActionResultWithCors.cs" />

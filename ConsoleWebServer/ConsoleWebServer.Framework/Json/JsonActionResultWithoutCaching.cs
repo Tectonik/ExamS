@@ -3,7 +3,7 @@ namespace ConsoleWebServer.Framework
     using System;
     using System.Collections.Generic;
 
-    public class JsonActionResultWithoutCaching : JsonActionResult
+    public class JsonActionResultWithoutCaching : JsonResult
     {
         public JsonActionResultWithoutCaching(HttpRequest r, object model) : base(r, model)
         {

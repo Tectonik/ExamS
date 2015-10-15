@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Text;
     using ConsoleWebServer.Framework.Exceptions;
@@ -15,7 +14,7 @@
             this.Headers = new SortedDictionary<string, ICollection<string>>();
             this.Uri = uri;
             this.Method = method;
-            this.Action = new ActionDescriptor(uri);
+            this.Action = new RequestComponentDescriptor(uri);
         }
 
         public Version ProtocolVersion { get; protected set; }
@@ -26,7 +25,7 @@
 
         public string Method { get; private set; }
 
-        public ActionDescriptor Action { get; private set; }
+        public RequestComponentDescriptor Action { get; private set; }
 
         public void AddHeader(string name, string valueValueValue)
         {
@@ -60,15 +59,25 @@
 
         public HttpRequest Parse(string reqAsStr)
         {
-            var textReader = new StringReader(reqAsStr);
-            string firstLine = textReader.ReadLine();
-            HttpRequest requestObject = this.CreateRequest(firstLine);
+            string[] componentsSeparated = reqAsStr.Trim().Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            HttpRequest requestObject = this.CreateRequest(componentsSeparated[0]);
+            int i = 1;
 
-            string line;
-            while ((line = textReader.ReadLine()) != null)
+            for (i = 1; i < componentsSeparated.Length; i++)
             {
+                var line = componentsSeparated[i];
                 this.AddHeaderToRequest(requestObject, line);
             }
+
+            //var textReader = new StringReader(reqAsStr);
+            //string firstLine = textReader.ReadLine();
+            //HttpRequest requestObject = this.CreateRequest(firstLine);
+
+            //string line;
+            //while ((line = textReader.ReadLine()) != null)
+            //{
+            //    this.AddHeaderToRequest(requestObject, line);
+            //}
 
             return requestObject;
         }

@@ -8,17 +8,17 @@
         {
         }
 
-        public IActionResult Index(string param)
+        public IResult Index(string param)
         {
             return this.Content("Home page :)");
         }
 
-        public IActionResult LivePage(string param)
+        public IResult LivePage(string param)
         {
             return new ContentActionResultWithoutCaching(this.Request, "Live page with no caching");
         }
 
-        public IActionResult LivePageForAjax(string param)
+        public IResult LivePageForAjax(string param)
         {
             return new ContentActionResultWithCorsWithoutCaching(this.Request, "Live page with no caching and CORS", "*");
         }

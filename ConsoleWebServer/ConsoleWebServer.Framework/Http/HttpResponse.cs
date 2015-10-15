@@ -55,6 +55,7 @@
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();
+
             stringBuilder.AppendLine(
                 string.Format(
                     "{0}{1} {2} {3}",
@@ -62,7 +63,9 @@
                     this.ProtocolVersion,
                     (int)this.StatusCode,
                     this.StatusCodeAsString));
+
             var headerStringBuilder = new StringBuilder();
+
             foreach (string key in this.Headers.Keys)
             {
                 headerStringBuilder.AppendLine(string.Format("{0}: {1}", key, string.Join("; ", this.Headers[key])));

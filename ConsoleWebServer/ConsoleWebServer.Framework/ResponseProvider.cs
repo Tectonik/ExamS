@@ -14,7 +14,7 @@ namespace ConsoleWebServer.Framework
             var temp = requestAsString.Split(' ');
             try
             {
-                var requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
+                HttpRequest requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
                 request = requestParser.Parse(requestAsString);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace ConsoleWebServer.Framework
                                               .GetTypes()
                                               .Where(x => x.Name.EndsWith("Controller") && typeof(Controller).IsAssignableFrom(x))
                                               .Select(
-                                                   x => new { x.Name, Methods = x.GetMethods().Where(m => m.ReturnType == typeof(IActionResult)) })
+                                                   x => new { x.Name, Methods = x.GetMethods().Where(m => m.ReturnType == typeof(IResult)) })
                                               .SelectMany(
                                                    x => x.Methods.Select(
                                                        m => string.Format("/{0}/{1}/{{parameter}}", x.Name.Replace("Controller", string.Empty), m.Name)))
@@ -53,7 +53,7 @@ namespace ConsoleWebServer.Framework
                 {
                     Controller controller = this.CreateController(request);
                     var actionInvoker = new NewActionInvoker();
-                    IActionResult actionResult = actionInvoker.InvokeAction(controller, request.Action);
+                    IResult actionResult = actionInvoker.InvokeAction(controller, request.Action);
                     response = actionResult.GetResponse();
                 }
                 catch (HttpResourceNotFoundException exception)

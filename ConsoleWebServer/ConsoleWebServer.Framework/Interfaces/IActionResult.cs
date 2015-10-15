@@ -3,7 +3,7 @@
     /// <summary>
     /// Describe me later
     /// </summary>
-    public interface IActionResult
+    public interface IResult
     {
         HttpResponse GetResponse();
     }

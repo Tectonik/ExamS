@@ -10,12 +10,12 @@
         {
         }
 
-        public IActionResult ReturnMe(string param)
+        public IResult ReturnMe(string param)
         {
             return this.Json(new { param });
         }
 
-        public IActionResult GetDateWithCors(string domainName)
+        public IResult GetDateWithCors(string domainName)
         {
             string requestReferer = string.Empty;
             if (this.Request.Headers.ContainsKey("Referer"))

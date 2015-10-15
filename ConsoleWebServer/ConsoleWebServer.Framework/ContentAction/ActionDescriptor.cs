@@ -3,13 +3,13 @@
     using System;
     using System.Linq;
 
-    public class ActionDescriptor
+    public class RequestComponentDescriptor
     {
-        public ActionDescriptor(string uri)
+        public RequestComponentDescriptor(string uri)
         {
             uri = uri ?? string.Empty;
 
-            string[] uriParts = uri.Split('/');
+            string[] uriParts = uri.Split(new char[] { '/' }, StringSplitOptions.None);
 
             this.ControllerName = uriParts.Length > 0 ? uriParts[0] : "Home";
             this.ActionName = uriParts.Length > 1 ? uriParts[1] : "Index";

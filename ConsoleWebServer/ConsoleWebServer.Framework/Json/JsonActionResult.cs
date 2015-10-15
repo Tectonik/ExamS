@@ -3,13 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Net;
+    using ConsoleWebServer.Framework.Interfaces;
     using Newtonsoft.Json;
 
-    public class JsonActionResult : IActionResult
+    public class JsonResult : IJsonResult, IResult
     {
         private readonly object Model;
 
-        public JsonActionResult(HttpRequest request, object model)
+        public JsonResult(HttpRequest request, object model)
         {
             this.Model = model;
             this.Request = request;
