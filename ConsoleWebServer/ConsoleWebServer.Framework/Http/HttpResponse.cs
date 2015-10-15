@@ -6,15 +6,9 @@
     using System.Net;
     using System.Text;
 
-    namespace ConsoleWebServer.Framework
-    {
-        using System;
-
-    }
-
     public class HttpResponse
     {
-        private readonly string ServerEngineName;
+        private readonly string serverEngineName;
 
         public HttpResponse(
             Version httpVersion,
@@ -22,12 +16,12 @@
             string body,
             string contentType = "text/plain; charset=utf-8")
         {
-            this.ServerEngineName = "ConsoleWebServer";
+            this.serverEngineName = "ConsoleWebServer";
             this.ProtocolVersion = Version.Parse(httpVersion.ToString().ToLower().Replace("HTTP/".ToLower(), string.Empty));
             this.Headers = new SortedDictionary<string, ICollection<string>>();
             this.Body = body;
             this.StatusCode = statusCode;
-            this.AddHeader("Server", this.ServerEngineName);
+            this.AddHeader("Server", this.serverEngineName);
             this.AddHeader("Content-Length", body.Length.ToString());
             this.AddHeader("Content-Type", contentType);
         }
@@ -54,6 +48,7 @@
             {
                 this.Headers.Add(name, new HashSet<string>());
             }
+
             this.Headers[name].Add(value);
         }
 
@@ -72,11 +67,13 @@
             {
                 headerStringBuilder.AppendLine(string.Format("{0}: {1}", key, string.Join("; ", this.Headers[key])));
             }
+
             stringBuilder.AppendLine(headerStringBuilder.ToString());
             if (!string.IsNullOrWhiteSpace(this.Body))
             {
                 stringBuilder.AppendLine(this.Body);
             }
+
             return stringBuilder.ToString();
         }
     }

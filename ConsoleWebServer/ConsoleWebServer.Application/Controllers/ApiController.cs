@@ -2,10 +2,11 @@
 {
     using System;
     using System.Linq;
+    using ConsoleWebServer.Framework;
 
     public class ApiController : Controller
     {
-        public ApiController(HttpRq request)
+        public ApiController(HttpRequest request)
             : base(request)
         {
         }
@@ -22,10 +23,12 @@
             {
                 requestReferer = this.Request.Headers["Referer"].FirstOrDefault();
             }
+
             if (string.IsNullOrWhiteSpace(requestReferer) || !requestReferer.Contains(domainName))
             {
                 throw new ArgumentException("Invalid referer!");
             }
+
             return new JsonActionResultWithCors(
                 this.Request,
                 new { date = DateTime.Now.ToString("yyyy-MM-dd"), moreInfo = string.Format("Data available for {0}", domainName) },

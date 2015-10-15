@@ -5,8 +5,8 @@ namespace ConsoleWebServer.Application
     {
         public static void Main()
         {
-            var webSever = new WebServerConsole();
-            webSever.Start();
+            var webServer = new WebServerConsole();
+            webServer.Start();
         }
     }
 }

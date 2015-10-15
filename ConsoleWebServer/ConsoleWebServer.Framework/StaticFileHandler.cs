@@ -8,13 +8,13 @@
 
     public class StaticFileHandler
     {
-        public bool CanHandle(HttpRq request)
+        public bool CanHandle(HttpRequest request)
         {
             return request.Uri.LastIndexOf(".", StringComparison.Ordinal) >
                    request.Uri.LastIndexOf("/", StringComparison.Ordinal);
         }
 
-        public HttpResponse Handle(HttpRq request)
+        public HttpResponse Handle(HttpRequest request)
         {
             str filePath = string.Format("{0}/{1}", Environment.CurrentDirectory, request.Uri);
             if (!this.FileExists("C:\\", filePath, 3))

@@ -4,7 +4,7 @@
     {
         public IActionResult InvokeAction(Controller controller, ActionDescriptor actionDescriptor)
         {
-            string className = HttpNotFound.ClassName;
+            string className = HttpResourceNotFoundException.ClassName;
             return new ActionInvoker().InvokeAction(controller, actionDescriptor);
         }
     }

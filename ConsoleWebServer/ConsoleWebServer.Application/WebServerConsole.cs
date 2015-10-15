@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Text;
+    using ConsoleWebServer.Framework;
 
     public class WebServerConsole
     {
@@ -28,6 +29,7 @@
                     requestBuilder.Clear();
                     continue;
                 }
+
                 requestBuilder.AppendLine(inputLine);
             }
         }

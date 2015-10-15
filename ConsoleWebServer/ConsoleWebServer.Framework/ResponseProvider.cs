@@ -10,10 +10,10 @@ namespace ConsoleWebServer.Framework
     {
         public HttpResponse GetResponse(string requestAsString)
         {
-            HttpRq request;
+            HttpRequest request;
             try
             {
-                var requestParser = new HttpRq("GET", "/", "1.1");
+                var requestParser = new HttpRequest("GET", "/", "1.1");
                 request = requestParser.Parse(requestAsString);
             }
             catch (Exception ex)
@@ -24,7 +24,7 @@ namespace ConsoleWebServer.Framework
             return response;
         }
 
-        private HttpResponse Process(HttpRq request)
+        private HttpResponse Process(HttpRequest request)
         {
             if (request.Method.ToLower() == "options")
             {
@@ -54,7 +54,7 @@ namespace ConsoleWebServer.Framework
                     IActionResult actionResult = actionInvoker.InvokeAction(controller, request.Action);
                     response = actionResult.GetResponse();
                 }
-                catch (HttpNotFound exception)
+                catch (HttpResourceNotFoundException exception)
                 {
                     response = new HttpResponse(request.ProtocolVersion, HttpStatusCode.NotFound, exception.Message);
                 }
@@ -70,16 +70,17 @@ namespace ConsoleWebServer.Framework
             }
         }
 
-        private Controller CreateController(HttpRq request)
+        private Controller CreateController(HttpRequest request)
         {
             string controllerClassName = string.Format("{0}Controller", request.Action.ControllerName);
             Type type = Assembly.GetEntryAssembly()
                                 .GetTypes()
-                                .FirstOrDefault(
-                                     x => x.Name.ToLower() == controllerClassName.ToLower() && typeof(Controller).IsAssignableFrom(x));
+                            .FirstOrDefault(
+                                    x => x.Name.ToLower() == controllerClassName.ToLower() && 
+                                    typeof(Controller).IsAssignableFrom(x));
             if (type == null)
             {
-                throw new HttpNotFound(
+                throw new HttpResourceNotFoundException(
                     string.Format("Controller with name {0} not found!", controllerClassName));
             }
             var instance = (Controller)Activator.CreateInstance(type, request);

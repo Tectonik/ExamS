@@ -1,8 +1,10 @@
 ﻿namespace ConsoleWebServer.Application.Controllers
 {
+    using ConsoleWebServer.Framework;
+
     public class HomeController : Controller
     {
-        public HomeController(HttpRq request)
+        public HomeController(HttpRequest request)
             : base(request)
         {
         }

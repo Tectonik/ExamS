@@ -16,14 +16,16 @@
      */
             MethodInfo methodWithIntParameter = c.GetType()
                                                     .GetMethods()
-                                                    .FirstOrDefault(x => x.Name.ToLower() == ad.ActionName.ToLower() && x.GetParameters().Length == 1 &&
-                                                                         x.GetParameters()[0].ParameterType == typeof(string) && x.ReturnType == typeof(IActionResult));
+                                                    .FirstOrDefault(
+                                                        x => x.Name.ToLower() == ad.ActionName.ToLower() && 
+                                                        x.GetParameters().Length == 1 &&
+                                                        x.GetParameters()[0].ParameterType == typeof(string) && 
+                                                        x.ReturnType == typeof(IActionResult));
             if (methodWithIntParameter == null)
             {
-                throw new HttpNotFound(
-                    string.Format("Expected method with signature IActionResult {0}(string) in class {1}Controller",
-                        ad.ActionName, ad.ControllerName));
+                throw new HttpResourceNotFoundException(string.Format("Expected method with signature IActionResult {0}(string) in class {1}Controller", ad.ActionName, ad.ControllerName));
             }
+
             try
             {
                 var actionResult = (IActionResult)

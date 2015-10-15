@@ -1,13 +1,15 @@
 namespace ConsoleWebServer.Framework
 {
+    using System;
     using System.Collections.Generic;
 
-    public class ContentActionResultWithoutCaching : ContentActionResult
+    public class JsonActionResultWithoutCaching : JsonActionResult
     {
-        public ContentActionResultWithoutCaching(HttpRq request, object model)
-            : base(request, model)
+        public JsonActionResultWithoutCaching(HttpRequest r, object model)
+            : base(r, model)
         {
             this.ResponseHeaders.Add(new KeyValuePair<string, string>("Cache-Control", "private, max-age=0, no-cache"));
+            throw new Exception();
         }
     }
 }

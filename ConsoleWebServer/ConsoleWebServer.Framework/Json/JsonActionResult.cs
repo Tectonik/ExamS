@@ -7,16 +7,16 @@
 
     public class JsonActionResult : IActionResult
     {
-        public readonly object model;
+        public readonly object Model;
 
-        public JsonActionResult(HttpRq rq, object m)
+        public JsonActionResult(HttpRequest rq, object m)
         {
-            this.model = m;
+            this.Model = m;
             this.Request = rq;
             this.ResponseHeaders = new List<KeyValuePair<string, string>>();
         }
 
-        public HttpRq Request { get; private set; }
+        public HttpRequest Request { get; private set; }
 
         public List<KeyValuePair<string, string>> ResponseHeaders { get; private set; }
 
@@ -27,7 +27,7 @@
 
         public string GetContent()
         {
-            return JsonConvert.SerializeObject(this.model);
+            return JsonConvert.SerializeObject(this.Model);
         }
 
         public HttpResponse GetResponse()
