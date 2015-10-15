@@ -1,8 +1,9 @@
 namespace ConsoleWebServer.Framework
 {
     using System.Collections.Generic;
+    using ConsoleWebServer.Framework.Json;
 
-    public class JsonActionResultWithCorsWithoutCaching : JsonResult
+    public class JsonActionResultWithCorsWithoutCaching : JsonResultBase
     {
         public JsonActionResultWithCorsWithoutCaching(HttpRequest request, object model, string corsSettings) : base(request, model)
         {

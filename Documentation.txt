@@ -12,12 +12,12 @@ Design pattern: Chain of Responsibility
 	* 
 
 Design pattern: Decorator
-	* 
+	* JsonResult with and withour CORS and caching
 
 Found bugs:
-	* Regardless of the request information, RequestProvider would make a new HttpRequest with a GET method, a "/" URI, and a HTTP version of 1.1
-	* ActionDescriptor(now RequestComponentDescriptor) previously did not remove empty entries in the split items array, resulting in inconsistent behaviour
-	* 
+	* Fixed: Regardless of the request information, RequestProvider would make a new HttpRequest with a GET method, a "/" URI, and a HTTP version of 1.1
+	* fixed: ActionDescriptor(now RequestComponentDescriptor) previously did not remove empty entries in the split items array, resulting in inconsistent behaviour
+	* Fixed: In JsonActionResultWithoutCaching constructor used to exception for no without specified reason
 
 Found bottleneck:
 	* 
@@ -35,4 +35,4 @@ Interface segregation principle
 	* 
 
 Dependency inversion principle
-	* In ConsoleWebServer.Application, class: WebServerConsole, method: WebServerConsole()/Constructor
+	* 

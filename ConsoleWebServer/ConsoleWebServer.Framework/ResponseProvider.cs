@@ -15,7 +15,7 @@ namespace ConsoleWebServer.Framework
             try
             {
                 HttpRequest requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
-                request = requestParser.Parse(requestAsString);
+                request = requestParser.Parse(requestAsString, new HttpRequest(null, null, null));
             }
             catch (Exception ex)
             {

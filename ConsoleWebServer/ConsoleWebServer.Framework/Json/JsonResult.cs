@@ -1,25 +1,26 @@
-﻿namespace ConsoleWebServer.Framework
+﻿namespace ConsoleWebServer.Framework.Json
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using ConsoleWebServer.Framework.Interfaces;
     using Newtonsoft.Json;
 
-    public class JsonResult : IJsonResult, IResult
+    class JsonResult : IJsonResult, IResult
     {
         private readonly object model;
 
-        public JsonResult(HttpRequest request, object model)
+        protected JsonResult(HttpRequest request, object model)
         {
             this.model = model;
             this.Request = request;
-            this.ResponseHeaders = new List<KeyValuePair<string, string>>();
+            this.ResponseHeaders = new Dictionary<string, string>();
         }
 
         public HttpRequest Request { get; private set; }
 
-        public List<KeyValuePair<string, string>> ResponseHeaders { get; private set; }
+        public Dictionary<string, string> ResponseHeaders { get; private set; }
 
         public virtual HttpStatusCode GetStatusCode()
         {

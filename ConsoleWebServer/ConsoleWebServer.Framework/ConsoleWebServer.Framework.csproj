@@ -73,9 +73,13 @@
     <Compile Include="ContentAction\ContentActionResultWithCors.cs" />
     <Compile Include="ContentAction\ContentActionResultWithCorsWithoutCaching.cs" />
     <Compile Include="ContentAction\ContentActionResultWithoutCaching.cs" />
+    <Compile Include="Json\DecoratorJson.cs" />
+    <Compile Include="Json\JsonResult.cs" />
+    <Compile Include="Json\ResultWithCors.cs" />
+    <Compile Include="Json\ResultWithoutCaching.cs" />
     <Compile Include="ResponceType.cs" />
     <Compile Include="Interfaces\IJsonActionResult.cs" />
-    <Compile Include="Json\JsonActionResult.cs" />
+    <Compile Include="Json\JsonResultBase.cs" />
     <Compile Include="ContentAction\ContentActionResult.cs" />
     <Compile Include="Json\JsonActionResultWithCors.cs" />
     <Compile Include="Json\JsonActionResultWithCorsWithoutCaching.cs" />

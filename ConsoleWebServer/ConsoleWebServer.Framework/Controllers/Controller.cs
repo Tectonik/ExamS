@@ -2,8 +2,9 @@
 {
     using System;
     using ConsoleWebServer.Framework.Interfaces;
+    using ConsoleWebServer.Framework.Json;
 
-    public abstract class Controller
+    public abstract class Controller 
     {
         protected Controller(HttpRequest request)
         {
@@ -19,7 +20,7 @@
 
         protected IResult GetResultJson(object model)
         {
-            return new JsonResult(this.Request, model);
+            return new JsonResultBase(this.Request, model);
         }
     }
 }

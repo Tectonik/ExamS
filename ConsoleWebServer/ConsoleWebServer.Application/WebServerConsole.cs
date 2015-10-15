@@ -3,10 +3,9 @@
     using System;
     using System.Linq;
     using System.Text;
-    using ConsoleWebServer.Application.Interfaces;
     using ConsoleWebServer.Framework;
 
-    public class WebServerConsole : IWebServerConsole
+    public class WebServerConsole
     {
         private readonly ResponseProvider responseProvider;
 
@@ -15,10 +14,8 @@
             this.responseProvider = responseProvider;
         }
 
-        public void ReadCommands()
+        public void ReadCommands(StringBuilder requestBuilder)
         {
-            StringBuilder requestBuilder = new StringBuilder();
-
             string inputLine = "start";
             while (inputLine != null)
             {

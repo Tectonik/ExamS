@@ -56,10 +56,10 @@
             return sb.ToString();
         }
 
-        public HttpRequest Parse(string reqAsStr)
+        public HttpRequest Parse(string reqAsStr, HttpRequest requestObject)
         {
             string[] componentsSeparated = reqAsStr.Trim().Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            HttpRequest requestObject = this.CreateRequest(componentsSeparated[0]);
+            requestObject = this.CreateRequest(componentsSeparated[0]);
             int i = 1;
 
             for (i = 1; i < componentsSeparated.Length; i++)
@@ -67,16 +67,6 @@
                 var line = componentsSeparated[i];
                 this.AddHeaderToRequest(requestObject, line);
             }
-
-            //var textReader = new StringReader(reqAsStr);
-            //string firstLine = textReader.ReadLine();
-            //HttpRequest requestObject = this.CreateRequest(firstLine);
-
-            //string line;
-            //while ((line = textReader.ReadLine()) != null)
-            //{
-            //    this.AddHeaderToRequest(requestObject, line);
-            //}
 
             return requestObject;
         }

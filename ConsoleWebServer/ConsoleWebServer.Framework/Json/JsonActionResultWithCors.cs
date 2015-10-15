@@ -1,8 +1,9 @@
 namespace ConsoleWebServer.Framework
 {
     using System.Collections.Generic;
+    using ConsoleWebServer.Framework.Json;
 
-    public class JsonActionResultWithCors : JsonResult
+    public class JsonActionResultWithCors : JsonResultBase
     {
         public JsonActionResultWithCors(HttpRequest request, object model, string corsSettings) : base(request, model)
         {
