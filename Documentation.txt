@@ -2,7 +2,7 @@ Design pattern: Factory Method
 	* 
 
 Design pattern: Strategy
-	* 
+	* In "Result" classes
 
 Design pattern: Template Method
 	* 
@@ -12,7 +12,7 @@ Design pattern: Chain of Responsibility
 	* 
 
 Design pattern: Decorator
-	* In all "Result" classes + with and without CORS and caching
+	* In all "Result" classes + with and without CORS and caching(Not complete)
 
 Found bugs:
 	* Fixed: Regardless of the request information, RequestProvider would make a new HttpRequest with a GET method, a "/" URI, and a HTTP version of 1.1
@@ -20,7 +20,7 @@ Found bugs:
 	* Fixed: In JsonActionResultWithoutCaching constructor used to exception for no without specified reason
 
 Found bottleneck:
-	* 
+	* In ActionInvoker, methodWithStringParameter does significant LINQ querying
 
 Single responsibility principle
 	* 
@@ -35,4 +35,4 @@ Interface segregation principle
 	* 
 
 Dependency inversion principle
-	* 
+	* In ConsoleWebServer wherever possible

@@ -3,14 +3,17 @@
     using System;
     using System.Linq;
     using ConsoleWebServer.Framework;
+    using ConsoleWebServer.Framework.Interfaces;
+    using ConsoleWebServer.Framework.RequestResult;
 
     public abstract class Decorator : HttpRequestResult
     {
-        public Decorator(HttpRequestResult result, HttpRequest request, object model) : base(request, model)
+        public Decorator(IRequestResult result, HttpRequest request, object model)
+            : base(request, model)
         {
-            this.requestResult = result;
+            this.RequestResult = result;
         }
 
-        protected HttpRequestResult requestResult { get; set; }
+        protected IRequestResult RequestResult { get; set; }
     }
 }

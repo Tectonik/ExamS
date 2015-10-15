@@ -5,6 +5,7 @@ namespace ConsoleWebServer.Framework
     using System.Linq;
     using System.Net;
     using System.Reflection;
+    using ConsoleWebServer.Framework.Interfaces;
 
     public class ResponseProvider
     {

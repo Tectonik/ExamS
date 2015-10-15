@@ -3,10 +3,12 @@
     using System;
     using System.Linq;
     using ConsoleWebServer.Framework;
+    using ConsoleWebServer.Framework.Interfaces;
 
     public class ApiController : Controller
     {
-        public ApiController(HttpRequest request) : base(request)
+        public ApiController(HttpRequest request)
+            : base(request)
         {
         }
 
@@ -28,10 +30,7 @@
                 throw new ArgumentException("Invalid referer!");
             }
 
-            return new JsonActionResultWithCors(
-                this.Request,
-                new { date = DateTime.Now.ToString("yyyy-MM-dd"), moreInfo = string.Format("Data available for {0}", domainName) },
-                domainName);
+            return new DecoratorResultWithCors(new RequestResultJson(), this.Request, new { date = DateTime.Now.ToString("yyyy-MM-dd"), moreInfo = string.Format("Data available for {0}", domainName) }, domainName);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace ConsoleWebServer.Framework
 {
     using System;
+    using ConsoleWebServer.Framework.Interfaces;
     using ConsoleWebServer.Framework.RequestResult;
 
     public abstract class Controller 
@@ -14,7 +15,7 @@
 
         protected IResult GetResultContent(object model)
         {
-            return new ContentActionResult(this.Request, model);
+            return new RequestResultContent(this.Request, model);
         }
 
         protected IResult GetResultJson(object model)

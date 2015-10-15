@@ -1,14 +1,32 @@
-﻿namespace ConsoleWebServer.Framework.ActionResult
+﻿namespace ConsoleWebServer.Framework.RequestResult
 {
     using System;
     using System.Linq;
+    using System.Net;
     using ConsoleWebServer.Framework;
+    using ConsoleWebServer.Framework.ActionResult;
 
     internal class DecoratorResultWithCors : Decorator
     {
-        public DecoratorResultWithCors(HttpRequestResult jsonResult, HttpRequest request, object model, string corsSettings) : base(jsonResult, request, model)
+        public DecoratorResultWithCors(IRequestResult jsonResult, HttpRequest request, object model, string corsSettings)
+            : base(jsonResult, request, model)
         {
-            this.requestResult.ResponseHeaders.Add("Access-Control-Allow-Origin", corsSettings);
+            this.RequestResult.AddHeader("Access-Control-Allow-Origin", corsSettings);
+        }
+
+        public override HttpStatusCode GetStatusCode()
+        {
+            return this.RequestResult.GetStatusCode();
+        }
+
+        public override string GetContent()
+        {
+            return this.RequestResult.GetContent();
+        }
+
+        public override HttpResponse GetResponse()
+        {
+            return this.RequestResult.GetResponse();
         }
     }
 }

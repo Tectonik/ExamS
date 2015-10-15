@@ -70,13 +70,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionInvoker.cs" />
+    <Compile Include="Interfaces\IRequestResult.cs" />
+    <Compile Include="Interfaces\IResult.cs" />
     <Compile Include="RequestResult\Decorator.cs" />
     <Compile Include="RequestResult\HttpRequestResult.cs" />
-    <Compile Include="RequestResult\JsonResult.cs" />
+    <Compile Include="RequestResult\RequestResultJson.cs" />
     <Compile Include="RequestResult\DecoratorResultWithCors.cs" />
     <Compile Include="RequestResult\ResultWithoutCaching.cs" />
     <Compile Include="ResponceType.cs" />
-    <Compile Include="RequestResult\ContentActionResult.cs" />
+    <Compile Include="RequestResult\RequestResultContent.cs" />
     <Compile Include="StaticFileHandler.cs" />
     <Compile Include="Exceptions\HttpResourceNotFoundException.cs" />
     <Compile Include="Http\HttpRequest.cs">
@@ -85,9 +87,6 @@
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Http\HttpResponse.cs" />
     <Compile Include="Interfaces\IResponseProvider.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
     <Compile Include="RequestUriDescriptor.cs" />
     <Compile Include="ResponseProvider.cs" />
   </ItemGroup>
@@ -95,7 +94,9 @@
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

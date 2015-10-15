@@ -1,6 +1,7 @@
 ﻿namespace ConsoleWebServer.Application.Controllers
 {
     using ConsoleWebServer.Framework;
+    using ConsoleWebServer.Framework.Interfaces;
 
     public class HomeController : Controller
     {
