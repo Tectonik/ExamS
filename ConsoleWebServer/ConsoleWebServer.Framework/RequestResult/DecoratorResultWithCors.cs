@@ -5,11 +5,11 @@
     using System.Net;
     using ConsoleWebServer.Framework;
     using ConsoleWebServer.Framework.ActionResult;
+    using ConsoleWebServer.Framework.Interfaces;
 
     internal class DecoratorResultWithCors : Decorator
     {
-        public DecoratorResultWithCors(IRequestResult jsonResult, HttpRequest request, object model, string corsSettings)
-            : base(jsonResult, request, model)
+        public DecoratorResultWithCors(IRequestResult jsonResult, HttpRequest request, object model, string corsSettings) : base(jsonResult, request, model)
         {
             this.RequestResult.AddHeader("Access-Control-Allow-Origin", corsSettings);
         }

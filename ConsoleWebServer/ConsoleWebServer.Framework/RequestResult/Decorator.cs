@@ -8,8 +8,7 @@
 
     public abstract class Decorator : HttpRequestResult
     {
-        public Decorator(IRequestResult result, HttpRequest request, object model)
-            : base(request, model)
+        public Decorator(IRequestResult result, HttpRequest request, object model) : base(request, model)
         {
             this.RequestResult = result;
         }

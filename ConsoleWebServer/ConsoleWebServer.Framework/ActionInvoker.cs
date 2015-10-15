@@ -15,7 +15,6 @@
          * This problem is avoided if the child process flushes the IO buffers after each call to a C run-time IO function.
          * Only the child process can flush its C run-time IO buffers. A process can flush its C run-time IO buffers by calling the fflush() function.
          */
-
             // I'm sorry, but I just can't understand what this horrible contraption does
             MethodInfo methodWithStringParameter = c.GetType()
                                                     .GetMethods()
