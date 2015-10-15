@@ -11,15 +11,17 @@ namespace ConsoleWebServer.Framework
         public HttpResponse GetResponse(string requestAsString)
         {
             HttpRequest request;
+            var temp = requestAsString.Split(' ');
             try
             {
-                var requestParser = new HttpRequest("GET", "/", "1.1");
+                var requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
                 request = requestParser.Parse(requestAsString);
             }
             catch (Exception ex)
             {
                 return new HttpResponse(new Version(1, 1), HttpStatusCode.BadRequest, ex.Message);
             }
+
             HttpResponse response = this.Process(request);
             return response;
         }
@@ -75,9 +77,9 @@ namespace ConsoleWebServer.Framework
             string controllerClassName = string.Format("{0}Controller", request.Action.ControllerName);
             Type type = Assembly.GetEntryAssembly()
                                 .GetTypes()
-                            .FirstOrDefault(
-                                    x => x.Name.ToLower() == controllerClassName.ToLower() && 
-                                    typeof(Controller).IsAssignableFrom(x));
+                                .FirstOrDefault(
+                                     x => x.Name.ToLower() == controllerClassName.ToLower() &&
+                                          typeof(Controller).IsAssignableFrom(x));
             if (type == null)
             {
                 throw new HttpResourceNotFoundException(

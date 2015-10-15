@@ -7,9 +7,8 @@
     {
         public const string ClassName = "HttpNotFoundException";
 
-        public HttpResourceNotFoundException(string message)
-            : base(message)
+        public HttpResourceNotFoundException(string message) : base(message)
         {
-        }        
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿// TODO: Describe patterns, SOLID, bugs and bottleneck in Documentation.txt
+
 namespace ConsoleWebServer.Application
 {
     public class EntryPoint
@@ -6,7 +7,7 @@ namespace ConsoleWebServer.Application
         public static void Main()
         {
             var webServer = new WebServerConsole();
-            webServer.Start();
+            webServer.ReadCommands();
         }
     }
 }

@@ -1,20 +1,20 @@
 ﻿namespace ConsoleWebServer.Framework
 {
-    using ConsoleWebServer.Framework.Exceptions;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text;
+    using ConsoleWebServer.Framework.Exceptions;
 
     public class HttpRequest
     {
-        public HttpRequest(string m, string uri, string httpVersion)
+        public HttpRequest(string method, string uri, string httpVersion)
         {
-            this.ProtocolVersion = Version.Parse(httpVersion.ToLower().Replace("HTTP/".ToLower(), string.Empty));
+            this.ProtocolVersion = Version.Parse(httpVersion.ToLower().Replace("HTTP/".ToLower(), string.Empty).Trim());
             this.Headers = new SortedDictionary<string, ICollection<string>>();
             this.Uri = uri;
-            this.Method = m;
+            this.Method = method;
             this.Action = new ActionDescriptor(uri);
         }
 

@@ -2,9 +2,9 @@
 {
     public abstract class Controller
     {
-        protected Controller(HttpRequest r)
+        protected Controller(HttpRequest request)
         {
-            this.Request = r;
+            this.Request = request;
         }
 
         public HttpRequest Request { get; private set; }

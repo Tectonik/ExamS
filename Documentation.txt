@@ -15,7 +15,7 @@ Design pattern: Decorator
 	* 
 
 Found bugs:
-	* 
+	* Regardless of the request information, RequestProvider would make a new HttpRequest with a GET method, a "/" URI, and a HTTP version of 1.1
 	* 
 	* 
 

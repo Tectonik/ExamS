@@ -7,12 +7,12 @@
 
     public class JsonActionResult : IActionResult
     {
-        public readonly object Model;
+        private readonly object Model;
 
-        public JsonActionResult(HttpRequest rq, object m)
+        public JsonActionResult(HttpRequest request, object model)
         {
-            this.Model = m;
-            this.Request = rq;
+            this.Model = model;
+            this.Request = request;
             this.ResponseHeaders = new List<KeyValuePair<string, string>>();
         }
 

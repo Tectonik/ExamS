@@ -14,12 +14,14 @@
             this.responseProvider = new ResponseProvider();
         }
 
-        public void Start()
+        public void ReadCommands()
         {
             var requestBuilder = new StringBuilder();
-            string inputLine;
-            while ((inputLine = Console.ReadLine()) != null)
+            string inputLine = "start";
+            while (inputLine != null)
             {
+                inputLine = Console.ReadLine();
+
                 if (string.IsNullOrWhiteSpace(inputLine))
                 {
                     HttpResponse response = this.responseProvider.GetResponse(requestBuilder.ToString());
@@ -27,10 +29,11 @@
                     Console.WriteLine(response);
                     Console.ResetColor();
                     requestBuilder.Clear();
-                    continue;
                 }
-
-                requestBuilder.AppendLine(inputLine);
+                else
+                {
+                    requestBuilder.AppendLine(inputLine);
+                }
             }
         }
     }
