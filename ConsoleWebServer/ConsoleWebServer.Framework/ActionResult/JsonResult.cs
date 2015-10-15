@@ -4,10 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
+    using ConsoleWebServer.Framework.ActionResult;
     using ConsoleWebServer.Framework.Interfaces;
     using Newtonsoft.Json;
 
-    class JsonResult : IJsonResult, IResult
+    abstract class JsonResult : HttpRequestResult, IJsonResult
     {
         private readonly object model;
 

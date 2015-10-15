@@ -70,20 +70,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionInvoker.cs" />
-    <Compile Include="ContentAction\ContentActionResultWithCors.cs" />
-    <Compile Include="ContentAction\ContentActionResultWithCorsWithoutCaching.cs" />
-    <Compile Include="ContentAction\ContentActionResultWithoutCaching.cs" />
-    <Compile Include="Json\DecoratorJson.cs" />
-    <Compile Include="Json\JsonResult.cs" />
-    <Compile Include="Json\ResultWithCors.cs" />
-    <Compile Include="Json\ResultWithoutCaching.cs" />
+    <Compile Include="ActionResult\DecoratorJson.cs" />
+    <Compile Include="ActionResult\HttpRequestResult.cs" />
+    <Compile Include="ActionResult\JsonResult.cs" />
+    <Compile Include="ActionResult\ResultWithCors.cs" />
+    <Compile Include="ActionResult\ResultWithoutCaching.cs" />
     <Compile Include="ResponceType.cs" />
     <Compile Include="Interfaces\IJsonActionResult.cs" />
-    <Compile Include="Json\JsonResultBase.cs" />
-    <Compile Include="ContentAction\ContentActionResult.cs" />
-    <Compile Include="Json\JsonActionResultWithCors.cs" />
-    <Compile Include="Json\JsonActionResultWithCorsWithoutCaching.cs" />
-    <Compile Include="Json\JsonActionResultWithoutCaching.cs" />
+    <Compile Include="ActionResult\JsonResultBase.cs" />
+    <Compile Include="ActionResult\ContentActionResult.cs" />
     <Compile Include="StaticFileHandler.cs" />
     <Compile Include="Exceptions\HttpResourceNotFoundException.cs" />
     <Compile Include="Http\HttpRequest.cs">
@@ -91,7 +86,6 @@
     </Compile>
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Http\HttpResponse.cs" />
-    <Compile Include="Interfaces\IResult.cs" />
     <Compile Include="Interfaces\IResponseProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -103,7 +97,9 @@
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ContentAction\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

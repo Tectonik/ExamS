@@ -20,7 +20,7 @@
 
         protected IResult GetResultJson(object model)
         {
-            return new JsonResultBase(this.Request, model);
+            return new JsonResultBasic(this.Request, model);
         }
     }
 }

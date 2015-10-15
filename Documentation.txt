@@ -12,7 +12,7 @@ Design pattern: Chain of Responsibility
 	* 
 
 Design pattern: Decorator
-	* JsonResult with and withour CORS and caching
+	* In all "Result" classes + with and without CORS and caching
 
 Found bugs:
 	* Fixed: Regardless of the request information, RequestProvider would make a new HttpRequest with a GET method, a "/" URI, and a HTTP version of 1.1
