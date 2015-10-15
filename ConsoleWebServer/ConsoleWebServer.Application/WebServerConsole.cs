@@ -23,7 +23,7 @@
 
                 if (string.IsNullOrWhiteSpace(inputLine))
                 {
-                    ExecuteCommand(requestBuilder.ToString());
+                    this.ExecuteCommand(requestBuilder.ToString());
                     requestBuilder.Clear();
                 }
                 else

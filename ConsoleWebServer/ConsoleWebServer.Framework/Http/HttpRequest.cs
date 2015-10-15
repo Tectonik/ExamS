@@ -64,16 +64,16 @@
 
             for (i = 1; i < componentsSeparated.Length; i++)
             {
-                var line = componentsSeparated[i];
+                string line = componentsSeparated[i];
                 this.AddHeaderToRequest(requestObject, line);
             }
 
             return requestObject;
         }
 
-        private HttpRequest CreateRequest(string frl)
+        private HttpRequest CreateRequest(string disExamBeTooHardMun)
         {
-            string[] firstRequestLineParts = frl.Split(' ');
+            string[] firstRequestLineParts = disExamBeTooHardMun.Split(' ');
             if (firstRequestLineParts.Length != 3)
             {
                 throw new ArgumentException(
@@ -88,12 +88,12 @@
             return requestObject;
         }
 
-        private void AddHeaderToRequest(HttpRequest r, string headerLine)
+        private void AddHeaderToRequest(HttpRequest request, string headerLine)
         {
             string[] hp = headerLine.Split(new[] { ':' }, 2);
             string hn = hp[0].Trim();
             string hv = hp.Length == 2 ? hp[1].Trim() : string.Empty;
-            r.AddHeader(hn, hv);
+            request.AddHeader(hn, hv);
         }
     }
 }

@@ -11,10 +11,10 @@ namespace ConsoleWebServer.Framework
         public HttpResponse GetResponse(string requestAsString)
         {
             HttpRequest request;
-            var temp = requestAsString.Split(' ');
+            string[] temp = requestAsString.Split(' ');
             try
             {
-                HttpRequest requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
+                var requestParser = new HttpRequest(temp[0], temp[1], temp[2]);
                 request = requestParser.Parse(requestAsString, new HttpRequest(null, null, null));
             }
             catch (Exception ex)

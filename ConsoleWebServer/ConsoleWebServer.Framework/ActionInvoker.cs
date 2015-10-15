@@ -15,12 +15,12 @@
          * Only the child process can flush its C run-time IO buffers. A process can flush its C run-time IO buffers by calling the fflush() function.
          */
             MethodInfo methodWithStringParameter = c.GetType()
-                                                 .GetMethods()
-                                                 .FirstOrDefault(
-                                                      x => x.Name.ToLower() == ad.ActionName.ToLower() &&
-                                                           x.GetParameters().Length == 1 &&
-                                                           x.GetParameters()[0].ParameterType == typeof(string) &&
-                                                           x.ReturnType == typeof(IResult));
+                                                    .GetMethods()
+                                                    .FirstOrDefault(
+                                                         x => x.Name.ToLower() == ad.ActionName.ToLower() &&
+                                                              x.GetParameters().Length == 1 &&
+                                                              x.GetParameters()[0].ParameterType == typeof(string) &&
+                                                              x.ReturnType == typeof(IResult));
             if (methodWithStringParameter == null)
             {
                 throw new HttpResourceNotFoundException(string.Format("Expected method with signature IActionResult {0}(string) in class {1}Controller", ad.ActionName, ad.ControllerName));

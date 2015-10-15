@@ -1,8 +1,7 @@
 ﻿namespace ConsoleWebServer.Framework
 {
     using System;
-    using ConsoleWebServer.Framework.Interfaces;
-    using ConsoleWebServer.Framework.Json;
+    using ConsoleWebServer.Framework.RequestResult;
 
     public abstract class Controller 
     {
