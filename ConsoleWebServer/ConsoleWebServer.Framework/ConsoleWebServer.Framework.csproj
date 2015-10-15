@@ -70,15 +70,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionInvoker.cs" />
+    <Compile Include="ContentActionResultWithCors.cs" />
+    <Compile Include="ContentActionResultWithCorsWithoutCaching.cs" />
+    <Compile Include="ContentActionResultWithoutCaching.cs" />
     <Compile Include="HighQualityCodeExamPointsProvider.cs" />
     <Compile Include="JsonActionResult.cs" />
     <Compile Include="ContentActionResult.cs" />
+    <Compile Include="JsonActionResultWithCors.cs" />
+    <Compile Include="JsonActionResultWithCorsWithoutCaching.cs" />
+    <Compile Include="JsonActionResultWithoutCaching.cs" />
     <Compile Include="NewActionInvoker.cs" />
     <Compile Include="StaticFileHandler.cs" />
     <Compile Include="HttpNotFound.cs" />
-    <Compile Include="HttpRequest.cs" />
+    <Compile Include="HttpRq.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="HR.cs" />
+    <Compile Include="HttpResponse.cs" />
     <Compile Include="IActionResult.cs" />
     <Compile Include="IResponseProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

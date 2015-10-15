@@ -2,6 +2,3 @@
 {
     HttpResponse GetResponse(string requestAsString);
 }
-
-
-

@@ -1,7 +1,8 @@
-using System.Reflection;
-using System;using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 
 public class ResponseProvider
 {
@@ -9,18 +10,15 @@ public class ResponseProvider
     {
         if (request.Method.ToLower() == "options")
         {
-            var routes =
-                Assembly.GetEntryAssembly()
-                    .GetTypes()
-                    .Where(x => x.Name.EndsWith("Controller") && typeof(Controller).IsAssignableFrom(x))
-                    .Select(
-                        x => new { x.Name, Methods = x.GetMethods().Where(m => m.ReturnType == typeof(IActionResult)) })
-                    .SelectMany(
-                        x =>
-                        x.Methods.Select(
-                            m =>
-                            string.Format("/{0}/{1}/{{parameter}}", x.Name.Replace("Controller", string.Empty), m.Name)))
-                    .ToList();
+            List<string> routes = Assembly.GetEntryAssembly()
+                                          .GetTypes()
+                                          .Where(x => x.Name.EndsWith("Controller") && typeof(Controller).IsAssignableFrom(x))
+                                          .Select(
+                                               x => new { x.Name, Methods = x.GetMethods().Where(m => m.ReturnType == typeof(IActionResult)) })
+                                          .SelectMany(
+                                               x => x.Methods.Select(
+                                                   m => string.Format("/{0}/{1}/{{parameter}}", x.Name.Replace("Controller", string.Empty), m.Name)))
+                                          .ToList();
 
             return new HttpResponse(request.ProtocolVersion, HttpStatusCode.OK, string.Join(Environment.NewLine, routes));
         }
@@ -33,9 +31,9 @@ public class ResponseProvider
             HttpResponse response;
             try
             {
-                var controller = CreateController(request);
+                Controller controller = this.CreateController(request);
                 var actionInvoker = new NewActionInvoker();
-                var actionResult = actionInvoker.InvokeAction(controller, request.Action);
+                IActionResult actionResult = actionInvoker.InvokeAction(controller, request.Action);
                 response = actionResult.GetResponse();
             }
             catch (HttpNotFound exception)
@@ -56,12 +54,11 @@ public class ResponseProvider
 
     private Controller CreateController(HttpRq request)
     {
-        var controllerClassName = request.Action.ControllerName + "Controller";
-        var type =
-            Assembly.GetEntryAssembly()
-                .GetTypes()
-                .FirstOrDefault(
-                    x => x.Name.ToLower() == controllerClassName.ToLower() && typeof(Controller).IsAssignableFrom(x));
+        string controllerClassName = string.Format("{0}Controller", request.Action.ControllerName);
+        Type type = Assembly.GetEntryAssembly()
+                            .GetTypes()
+                            .FirstOrDefault(
+                                 x => x.Name.ToLower() == controllerClassName.ToLower() && typeof(Controller).IsAssignableFrom(x));
         if (type == null)
         {
             throw new HttpNotFound(
@@ -83,7 +80,7 @@ public class ResponseProvider
         {
             return new HttpResponse(new Version(1, 1), HttpStatusCode.BadRequest, ex.Message);
         }
-        var response = this.Process(request);
+        HttpResponse response = this.Process(request);
         return response;
     }
 }
