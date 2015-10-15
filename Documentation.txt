@@ -35,4 +35,4 @@ Interface segregation principle
 	* 
 
 Dependency inversion principle
-	* 
+	* In ConsoleWebServer.Application, class: WebServerConsole, method: WebServerConsole()/Constructor

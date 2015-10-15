@@ -8,6 +8,5 @@
     {
         HttpStatusCode GetStatusCode();
         string GetContent();
-        HttpResponse GetResponse();
     }
 }

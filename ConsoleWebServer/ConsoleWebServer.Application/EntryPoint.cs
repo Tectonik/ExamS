@@ -1,12 +1,11 @@
-﻿// TODO: Describe patterns, SOLID, bugs and bottleneck in Documentation.txt
-
+﻿using ConsoleWebServer.Framework;
 namespace ConsoleWebServer.Application
 {
     public class EntryPoint
     {
         public static void Main()
         {
-            var webServer = new WebServerConsole();
+            var webServer = new WebServerConsole(new ResponseProvider());
             webServer.ReadCommands();
         }
     }

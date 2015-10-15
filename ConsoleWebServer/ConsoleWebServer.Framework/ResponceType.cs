@@ -3,16 +3,11 @@
     using System;
     using System.Linq;
 
-    internal class HighQualityCodeExamPointsProvider
+    internal class ResponceType
     {
         public static string GetContentType()
         {
             return "application/json";
-        }
-
-        public int GetMyPoints()
-        {
-            return 0;
         }
     }
 }

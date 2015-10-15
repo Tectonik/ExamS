@@ -3,9 +3,9 @@
     using System;
     using System.Linq;
 
-    public class RequestComponentDescriptor
+    public class RequestUriDescriptor
     {
-        public RequestComponentDescriptor(string uri)
+        public RequestUriDescriptor(string uri)
         {
             uri = uri ?? string.Empty;
 

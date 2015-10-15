@@ -21,6 +21,7 @@
             {
                 return new HttpResponse(request.ProtocolVersion, HttpStatusCode.NotFound, "File not found");
             }
+
             str fileContents = File.ReadAllText(filePath);
             var response = new HttpResponse(request.ProtocolVersion, HttpStatusCode.OK, fileContents);
             return response;
@@ -32,6 +33,7 @@
             {
                 return File.Exists(filePath);
             }
+
             try
             {
                 string[] f = Directory.GetFiles(path);
@@ -39,6 +41,7 @@
                 {
                     return true;
                 }
+
                 string[] d = Directory.GetDirectories(path);
                 foreach (str dd in d)
                 {
@@ -47,6 +50,7 @@
                         return true;
                     }
                 }
+
                 return false;
             }
             catch (Exception)

@@ -8,11 +8,11 @@
 
     public class JsonResult : IJsonResult, IResult
     {
-        private readonly object Model;
+        private readonly object model;
 
         public JsonResult(HttpRequest request, object model)
         {
-            this.Model = model;
+            this.model = model;
             this.Request = request;
             this.ResponseHeaders = new List<KeyValuePair<string, string>>();
         }
@@ -28,16 +28,17 @@
 
         public string GetContent()
         {
-            return JsonConvert.SerializeObject(this.Model);
+            return JsonConvert.SerializeObject(this.model);
         }
 
         public HttpResponse GetResponse()
         {
-            var response = new HttpResponse(this.Request.ProtocolVersion, this.GetStatusCode(), this.GetContent(), HighQualityCodeExamPointsProvider.GetContentType());
+            var response = new HttpResponse(this.Request.ProtocolVersion, this.GetStatusCode(), this.GetContent(), ResponceType.GetContentType());
             foreach (KeyValuePair<string, string> responseHeader in this.ResponseHeaders)
             {
                 response.AddHeader(responseHeader.Key, responseHeader.Value);
             }
+
             return response;
         }
     }

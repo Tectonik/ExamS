@@ -69,37 +69,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentAction\ActionInvoker.cs" />
+    <Compile Include="ActionInvoker.cs" />
     <Compile Include="ContentAction\ContentActionResultWithCors.cs" />
     <Compile Include="ContentAction\ContentActionResultWithCorsWithoutCaching.cs" />
     <Compile Include="ContentAction\ContentActionResultWithoutCaching.cs" />
-    <Compile Include="Decorator\Class1.cs" />
-    <Compile Include="Exceptions\ParserException.cs" />
-    <Compile Include="HomeController.cs" />
-    <Compile Include="HighQualityCodeExamPointsProvider.cs" />
+    <Compile Include="ResponceType.cs" />
     <Compile Include="Interfaces\IJsonActionResult.cs" />
     <Compile Include="Json\JsonActionResult.cs" />
     <Compile Include="ContentAction\ContentActionResult.cs" />
     <Compile Include="Json\JsonActionResultWithCors.cs" />
     <Compile Include="Json\JsonActionResultWithCorsWithoutCaching.cs" />
     <Compile Include="Json\JsonActionResultWithoutCaching.cs" />
-    <Compile Include="NewActionInvoker.cs" />
     <Compile Include="StaticFileHandler.cs" />
     <Compile Include="Exceptions\HttpResourceNotFoundException.cs" />
-    <Compile Include="Http\HttpRequest.cs" />
+    <Compile Include="Http\HttpRequest.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Http\HttpResponse.cs" />
-    <Compile Include="Interfaces\IActionResult.cs" />
+    <Compile Include="Interfaces\IResult.cs" />
     <Compile Include="Interfaces\IResponseProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="ContentAction\ActionDescriptor.cs" />
+    <Compile Include="RequestUriDescriptor.cs" />
     <Compile Include="ResponseProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

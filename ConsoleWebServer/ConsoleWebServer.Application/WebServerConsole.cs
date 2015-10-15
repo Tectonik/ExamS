@@ -3,20 +3,22 @@
     using System;
     using System.Linq;
     using System.Text;
+    using ConsoleWebServer.Application.Interfaces;
     using ConsoleWebServer.Framework;
 
-    public class WebServerConsole
+    public class WebServerConsole : IWebServerConsole
     {
         private readonly ResponseProvider responseProvider;
 
-        public WebServerConsole()
+        public WebServerConsole(ResponseProvider responseProvider)
         {
-            this.responseProvider = new ResponseProvider();
+            this.responseProvider = responseProvider;
         }
 
         public void ReadCommands()
         {
-            var requestBuilder = new StringBuilder();
+            StringBuilder requestBuilder = new StringBuilder();
+
             string inputLine = "start";
             while (inputLine != null)
             {
@@ -24,10 +26,7 @@
 
                 if (string.IsNullOrWhiteSpace(inputLine))
                 {
-                    HttpResponse response = this.responseProvider.GetResponse(requestBuilder.ToString());
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine(response);
-                    Console.ResetColor();
+                    ExecuteCommand(requestBuilder.ToString());
                     requestBuilder.Clear();
                 }
                 else
@@ -35,6 +34,14 @@
                     requestBuilder.AppendLine(inputLine);
                 }
             }
+        }
+
+        private void ExecuteCommand(string request)
+        {
+            HttpResponse response = this.responseProvider.GetResponse(request);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(response);
+            Console.ResetColor();
         }
     }
 }

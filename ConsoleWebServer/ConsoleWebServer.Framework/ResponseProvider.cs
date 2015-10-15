@@ -52,7 +52,7 @@ namespace ConsoleWebServer.Framework
                 try
                 {
                     Controller controller = this.CreateController(request);
-                    var actionInvoker = new NewActionInvoker();
+                    var actionInvoker = new ActionInvoker();
                     IResult actionResult = actionInvoker.InvokeAction(controller, request.Action);
                     response = actionResult.GetResponse();
                 }
@@ -64,6 +64,7 @@ namespace ConsoleWebServer.Framework
                 {
                     response = new HttpResponse(request.ProtocolVersion, HttpStatusCode.InternalServerError, exception.Message);
                 }
+
                 return response;
             }
             else
@@ -85,6 +86,7 @@ namespace ConsoleWebServer.Framework
                 throw new HttpResourceNotFoundException(
                     string.Format("Controller with name {0} not found!", controllerClassName));
             }
+
             var instance = (Controller)Activator.CreateInstance(type, request);
             return instance;
         }

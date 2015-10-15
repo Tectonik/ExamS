@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleWebServer.Framework.JsonActionResultWithoutCaching" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Json\JsonActionResultWithoutCaching.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.RequestComponentDescriptor" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAQAAAQAAAEAAAAAAA=</HashCode>
+      <FileName>ContentAction\ActionDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ActionInvoker" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ContentAction\ActionInvoker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ContentActionResult" Collapsed="true">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAgAAAAAAgA=</HashCode>
+      <FileName>ContentAction\ContentActionResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ContentActionResultWithCors&lt;TResult&gt;" Collapsed="true">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContentAction\ContentActionResultWithCors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ContentActionResultWithCorsWithoutCaching" Collapsed="true">
+    <Position X="9" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContentAction\ContentActionResultWithCorsWithoutCaching.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ContentActionResultWithoutCaching" Collapsed="true">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContentAction\ContentActionResultWithoutCaching.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.Controller" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.HttpResourceNotFoundException" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\HttpResourceNotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.HighQualityCodeExamPointsProvider" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HighQualityCodeExamPointsProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.HttpRequest" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAkAAAgAQAACAAAAAAACAACAAAACAQ=</HashCode>
+      <FileName>Http\HttpRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.HttpResponse" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAEAAABAAAACAAAAAAAIAAGAAAACAA=</HashCode>
+      <FileName>Http\HttpResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.JsonResult" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAEgAAAACgAAAAAAgA=</HashCode>
+      <FileName>Json\JsonActionResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.JsonActionResultWithCors" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Json\JsonActionResultWithCors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.JsonActionResultWithCorsWithoutCaching" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Json\JsonActionResultWithCorsWithoutCaching.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.NewActionInvoker" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>NewActionInvoker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.ResponseProvider" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAgAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResponseProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.StaticFileHandler" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAACAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>StaticFileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.Decorator.Decorator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAgAAEAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Decorator\Decorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConsoleWebServer.Framework.Exceptions.ParserException" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ParserException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ConsoleWebServer.Framework.IResult" Collapsed="true">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ConsoleWebServer.Framework.IResponseProvider" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IResponseProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ConsoleWebServer.Framework.Interfaces.IJsonResult" Collapsed="true">
+    <Position X="4.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAEAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IJsonActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using ConsoleWebServer.Framework.Exceptions;
 
     public class HttpRequest
     {
@@ -14,7 +13,7 @@
             this.Headers = new SortedDictionary<string, ICollection<string>>();
             this.Uri = uri;
             this.Method = method;
-            this.Action = new RequestComponentDescriptor(uri);
+            this.Action = new RequestUriDescriptor(uri);
         }
 
         public Version ProtocolVersion { get; protected set; }
@@ -25,7 +24,7 @@
 
         public string Method { get; private set; }
 
-        public RequestComponentDescriptor Action { get; private set; }
+        public RequestUriDescriptor Action { get; private set; }
 
         public void AddHeader(string name, string valueValueValue)
         {
@@ -87,7 +86,7 @@
             string[] firstRequestLineParts = frl.Split(' ');
             if (firstRequestLineParts.Length != 3)
             {
-                throw new ParserException(
+                throw new ArgumentException(
                     "Invalid format for the first request line. Expected format: [Method] [Uri] HTTP/[Version]");
             }
 

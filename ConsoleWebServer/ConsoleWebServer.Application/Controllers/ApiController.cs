@@ -12,7 +12,7 @@
 
         public IResult ReturnMe(string param)
         {
-            return this.Json(new { param });
+            return this.GetResultJson(new { param });
         }
 
         public IResult GetDateWithCors(string domainName)

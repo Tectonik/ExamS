@@ -10,7 +10,7 @@
 
         public IResult Index(string param)
         {
-            return this.Content("Home page :)");
+            return this.GetResultContent("Home page :)");
         }
 
         public IResult LivePage(string param)
